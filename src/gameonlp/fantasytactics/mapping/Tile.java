@@ -1,17 +1,16 @@
 package gameonlp.fantasytactics.mapping;
 
-import gameonlp.fantasytactics.Texture;
+import gameonlp.fantasytactics.Updatable;
+import gameonlp.fantasytactics.ui.TextureDecorator;
 
-public class Tile {
+public class Tile implements Updatable {
 
-
-    //TODO figure out animation entry point
-    private Texture texture;
+    private TextureDecorator texture;
     private boolean walkable;
     private boolean flyable;
     private boolean buildable;
 
-    public Tile(Texture texture, boolean walkable, boolean flyable, boolean buildable) {
+    public Tile(TextureDecorator texture, boolean walkable, boolean flyable, boolean buildable) {
         this.texture = texture;
         this.walkable = walkable;
         this.flyable = flyable;
@@ -42,11 +41,16 @@ public class Tile {
         this.buildable = buildable;
     }
 
-    public Texture getTexture() {
+    public TextureDecorator getTexture() {
         return texture;
     }
 
-    public void setTexture(Texture texture) {
+    public void setTexture(TextureDecorator texture) {
         this.texture = texture;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

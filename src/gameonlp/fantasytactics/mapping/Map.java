@@ -1,6 +1,13 @@
 package gameonlp.fantasytactics.mapping;
 
-public class Map {
+import gameonlp.fantasytactics.Updatable;
+
+public class Map implements Updatable {
     private int height, width;
     Tile[] tiles = new Tile[height * width];
+
+    @Override
+    public void update() {
+
+    }
 }

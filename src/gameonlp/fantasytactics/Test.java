@@ -5,15 +5,20 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Test {
+
+    GameQueue queue = GameQueue.getInstance();
+
     public static void main(String[] args) {
         BufferedImage backBufferImage = new BufferedImage(1280, 720, BufferedImage.TYPE_INT_ARGB);
         Graphics2D backBuffer = backBufferImage.createGraphics();
         JPanel clippingArea = new JPanel() {
 
+            @Override
             public Dimension getPreferredSize() {
                 return new Dimension(1280, 720);
             }
 
+            @Override
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
 

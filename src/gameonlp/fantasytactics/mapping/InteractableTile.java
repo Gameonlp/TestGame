@@ -1,6 +1,6 @@
 package gameonlp.fantasytactics.mapping;
 
-import gameonlp.fantasytactics.Texture;
+import gameonlp.fantasytactics.ui.Texture;
 import gameonlp.fantasytactics.unit.Attack;
 import gameonlp.fantasytactics.unit.Unit;
 
