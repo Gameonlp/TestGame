@@ -2,6 +2,10 @@ package gameonlp.fantasytactics;
 
 public class Achievement implements Listener {
 
+    public Achievement() {
+        queue.register(this);
+    }
+
     @Override
     public void listen(Message m) {
         switch (m.messageType) {

@@ -3,9 +3,12 @@ package gameonlp.fantasytactics;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.PriorityQueue;
 
 public class Test {
 
+    public static GraphicsComponent graphicsComponent;
+    private static PriorityQueue<Updatable> updatables;
     GameQueue queue = GameQueue.getInstance();
 
     public static void main(String[] args) {
@@ -32,6 +35,9 @@ public class Test {
         mainFrame.setResizable(false);
         mainFrame.setVisible(true);
 
+        updatables = new PriorityQueue<>();
+        graphicsComponent = new GraphicsComponent(clippingArea, backBuffer);
+
         long time;
         long newTime = 0;
         float fps = 0;
@@ -40,17 +46,18 @@ public class Test {
         backBuffer.setBackground(new Color(0, 0, 0, 0));
 
         while (running) {
-            backBuffer.clearRect(0, 0, 1280, 720);
             time = newTime;
             newTime = System.currentTimeMillis();
-            fps = (1000 / (newTime - time)) * 0.95F + (fps * 0.05F);
+            if (newTime - time >= 16) {
+                backBuffer.clearRect(0, 0, 1280, 720);
+                fps = (1000 / (newTime - time)) * 0.9F + (fps * 0.1F);
 
-
-            backBuffer.setColor(new Color(0, 0, 0, 255));
-            backBuffer.drawString((int) fps + " FPS", 0, 12);
-            clippingArea.repaint();
+                backBuffer.setColor(new Color(0, 0, 0, 255));
+                backBuffer.drawString((int) fps + " FPS", 0, 12);
+                clippingArea.repaint();
+            }
             try {
-                Thread.sleep(10);
+                Thread.sleep(4);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
