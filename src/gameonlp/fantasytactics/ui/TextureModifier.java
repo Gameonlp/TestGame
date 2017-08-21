@@ -1,5 +1,7 @@
 package gameonlp.fantasytactics.ui;
 
-public interface TextureModifier {
+import gameonlp.fantasytactics.Updatable;
+
+public interface TextureModifier extends Updatable {
     Texture modify(Texture t);
 }

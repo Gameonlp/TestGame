@@ -8,6 +8,5 @@ public class Map implements Updatable {
 
     @Override
     public void update() {
-
     }
 }
